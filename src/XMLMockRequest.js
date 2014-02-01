@@ -1,4 +1,5 @@
 /*jshint browser:true*/
+/*exports XMLMockRequest*/
 (function () {
     'use strict';
 
