@@ -1,0 +1,5 @@
+# gitignore
+
+.grunt/
+node_modules/
+_SpecRunner.html
