@@ -1,5 +1,7 @@
 /*global module*/
 module.exports = function (grunt) {
+    'use strict';
+
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         jshint: {
@@ -10,9 +12,13 @@ module.exports = function (grunt) {
             source: ['src/**/*.js'],
             test: ['test/**/*.js']
         },
+        connect: {
+            server: {}
+        },
         jasmine: {
             options: {
-                specs: ['test/**/*Spec.js']
+                specs: ['test/**/*Spec.js'],
+                host: 'http://127.0.0.1:8000'
             },
             source: {
                 src: ['src/**/*.js']
@@ -56,11 +62,12 @@ module.exports = function (grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-jasmine');
+    grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-clean');
     
-    grunt.registerTask('default', ['jshint', 'jasmine:source', 'clean', 'uglify', 'jasmine:build']);
+    grunt.registerTask('default', ['jshint', 'connect', 'jasmine:source', 'clean', 'uglify', 'jasmine:build']);
     grunt.registerTask('readme', function () {
         grunt.file.write('README.md', grunt.template.process('# <%= pkg.name %> v<%= pkg.version %>\n' +
             '_by [<%= pkg.author.name %>](<%= pkg.author.url %>)_\n\n' +
