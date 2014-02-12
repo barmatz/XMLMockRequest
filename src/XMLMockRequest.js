@@ -1,7 +1,6 @@
-/*jshint browser:true*/
-/*exports XMLMockRequest*/
-(function () {
+/*exported XMLMockRequest*/
+var XMLMockRequest = (function () {
     'use strict';
 
-    window.XMLMockRequest = function () {};
+    return function () {};
 }());
