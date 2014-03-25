@@ -34,7 +34,10 @@ module.exports = function (grunt) {
             options: {
                 banner: '/*! <%= pkg.name %> v<%=pkg.version%> license <%= pkg.license %> <%= grunt.template.today("yyyy-mm-dd") %> */'
             },
-            'dist/XMLMockReqeust.min.js': ['src/**/*.js']
+            'dist/XMLMockReqeust.min.js': [
+                'src/polyfills/**/*.js',
+                'src/**/*.js'
+            ]
         },
         watch: {
             options: {
