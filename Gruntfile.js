@@ -72,6 +72,8 @@ module.exports = function (grunt) {
         grunt.file.write('README.md', grunt.template.process('# <%= pkg.name %> v<%= pkg.version %>\n' +
             '_by [<%= pkg.author.name %>](<%= pkg.author.url %>)_\n\n' +
             '<%= pkg.description %>' + '\n' +
+            '![build badge](https://travis-ci.org/barmatz/XMLMockRequest.svg)' + 
+            '![dependencies badge](https://david-dm.org/barmatz/XMLMockRequest.png)' + '\n' +
             '## License\n' +
             grunt.file.read('LICENSE') + '\n' +
             '\n_This file was generate on <%= grunt.template.today("yyyy-mm-dd h:MM:ss TT") %>_'));
